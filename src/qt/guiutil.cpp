@@ -953,4 +953,314 @@ QString formatTimeOffset(int64_t nTimeOffset)
   return QString(QObject::tr("%1 s")).arg(QString::number((int)nTimeOffset, 10));
 }
 
+void SetThemeQSS(QApplication& app)
+{
+
+#ifdef Q_OS_MAC
+    // Mac OS styles here
+    app.setStyleSheet(
+        "QMainWindow            { background-color: rgb(238,238,238) ;}"
+        "QDialog                { background-color: rgb(238,238,238) ;}"
+        "QFrame                 { border: 5px ;}"
+        "QFrame#SendCoinsEntry  { background-color: rgba(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenu                  { }"
+
+        "QWidget#RPCConsole     { background-color: rgb(238,238,238) ;}"
+        "QWidget#widget         { background-color: rgb(238,238,238); border-bottom: 1px solid rgb(204,204,204); }"
+        "QWidget#widget_2       { padding: 2px; margin: 3px; border-left: 1px solid rgb(204,204,204); }"
+
+        "QPushButton            { background: rgb(238,238,238); color: rgb(0,0,0); border: 2px solid rgb(204,204,204); padding: 3px;  margin: 6px; margin-left: 12px; margin-right: 12px ;}"
+        "QPushButton:hover      { background: rgb(238,238,238); color: rgb(0,0,0); border: 2px solid rgb(204,204,204); padding: 3px;  margin: 6px; margin-left: 12px; margin-right: 12px ;}"
+        "QPushButton:disabled   { color: rgb(150,150,150) ;}"
+
+        "QToolBar               { background-color: rgb(238,238,238) ;}"
+
+        "QTabBar::tab           { color: rgb(0,0,0); border: 1px solid rgb(204,204,204); border-bottom: none; padding: 5px ;}"
+        "QTabBar::tab:selected  { background: rgb(153,204,153);}"
+        "QTabBar::tab:!selected { background: rgb(238,238,238); margin-top: 2px;}"
+
+        "QToolButton            { font-size: 14px; background: rgb(238,238,238); color: rgb(0,0,0); border: 1px solid rgb(238,238,238); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:hover      { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(153,204,153); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:pressed    { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(0,0,0); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:checked    { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(153,204,153); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:disabled   { color: rgb(150,150,150) ;}"
+        "QToolButton#addressBookButton, QToolButton#deleteButton, QToolButton#pasteButton { font-size: 8px; background: rgb(238,238,238); color: rgb(0,0,0); padding: 2px;  margin: 3px; margin-left: 2px; margin-right: 2px ;}"
+
+        "QDoubleSpinBox         { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QLineEdit              { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0); }"
+        "QLineEdit#lineEdit     { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QValidatedLineEdit     { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+
+        "QTextEdit              { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+        "QTextEdit#messagesWidget      { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QPlainTextEdit         { padding: 2px; border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QMenu                  { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenu::item:selected   { background: rgb(153,204,153); color: rgb(0,0,0) ;}"
+
+        "QMenuBar               { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenuBar::item         { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenuBar::item:selected { background: rgb(153,204,153) ;}"
+
+        "QScrollBar             { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QCheckBox              { padding: 2px; color: rgb(0,0,0); background: rgb(238,238,238) ;}"
+
+        "QRadioButton           { padding: 2px; color: rgb(0,0,0); background: rgb(238,238,238) ;}"
+
+        "QTabWidget::tab-bar    { border-radius: 2px ;}"
+        "QTabWidget::pane       { border: 2px solid rgb(204,204,204); border-radius: 4px ;}"
+
+        "QProgressBar           { color: rgb(0,0,0); border: 2px solid rgb(204,204,204); border-radius: 4px ;}"
+        "QProgressBar::chunk    { background: rgb(153,204,153) ;}"
+        "QProgressBar::QLabel   { color: rgb(0,0,0) ;}"
+
+        "QTreeView              { background-color: rgba(0,0,0,0) ;}"
+        "QTreeView::item        { background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QTreeView::item:selected { background-color: rgba(153,204,153) ;}"
+
+        "QTableView             { alternate-background-color: rgb(255,255,255) ; color: rgb(0,0,0); selection-color: rgb(0,0,0); selection-background-color: rgb(153,204,153);}"
+
+        "QScrollArea#scrollArea { background-color: rgba(255,255,255) ;}"
+
+        "QHeaderView::section   {  padding: 1px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QHeaderView            {  padding: 1px; background: rgb(255,255,255) ;}"
+
+        "QWidget#transactionsPage { background-color: rgba(255,255,255);}"
+
+        "QWidget#scrollAreaWidgetContents { background-color: rgba(238,238,238);}"
+
+        "QDialog#EditAddressDialog, QDialog#SignVerifyMessageDialog, QDialog#AskPassphraseDialog, QDialog#CoinControlDialog, QDialog#TransactionDescDialog, QDialog#AboutDialog, QDialog#OptionsDialog, QDialog#QRCodeDialog, QDialog#RPCConsole, QMessageBox  {color: rgb(0,0,0) ;}"
+
+        "QSpinBox               {  padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0);}"
+        "QComboBox              {  padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0);}"
+        "QAbstractSpinBox       {padding: 2px; border: 1px solid rgb(204,204,204); border-radius: 3px;  color: rgb(0,0,0); background: rgb(255,255,255) ;}"
+        "QAbstractItemView      {padding: 2px; border: 1px solid rgb(238,238,238); border-radius: 3px;  color: rgb(0,0,0); background: rgb(255,255,255) ;}"
+
+        "QVBoxLayout            { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QVBoxLayout::QLabel    { color: rgb(0,0,0);}"
+
+        "QLabel                 { color: rgb(0,0,0) ;}"
+        "QLabel::header         { border-color: rgb(204,204,204) ;}"
+        "QLabel::progressBarLabel { color: rgb(238,238,238) ;}"
+        "QLabel#lbl_Available_text, QLabel#lbl_Pending_Text, QLabel#labelStakingText, QLabel#labelImmatureText, QLabel#lbl_Total_Text, QLabel#lbl_24H_Text, QLabel#lbl_7D_Text, QLabel#lbl_30D_Text {font-size: 14px; color: rgb(0,0,0);}"
+        "QLabel#labelStaking, QLabel#labelBalance, QLabel#labelStake, QLabel#labelUnconfirmed, QLabel#labelImmature, QLabel#label24hStakingStats, QLabel#label7dStakingStats, QLabel#label30dStakingStats  {font-size: 14px; color: rgb(0,0,0);}"
+        "QLabel#label_MyWallet, QLabel#StakingStatus_Heading {color: rgb(0,0,0) ;}"
+        "QLabel#overviewpage_total_label, QLabel#labelTotal {font-size: 14px; font-weight: bold; color: rgb(0,0,0) ;}"
+        "QLabel#lblAmount, QLabel#lblLabel, QLabel#lblMessage {color: rgb(0,0,0) ;}"
+        "QLabel#lbl_last_action {font-size: 14px; color: rgb(0,0,0);}"
+
+        "QListView#listTransactions              { background-color: transparent; font-size: 14px; color: rgb(0,0,0) ;}"
+
+    );
+}
+
+#elif _WIN32
+// Windows styles here
+    app.setStyleSheet(
+        "QMainWindow            { background-color: rgb(238,238,238) ;}"
+        "QDialog                { background-color: rgb(238,238,238) ;}"
+        "QFrame                 { border: 5px ;}"
+        "QFrame#SendCoinsEntry  { background-color: rgba(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenu                  { }"
+
+        "QWidget#RPCConsole     { background-color: rgb(238,238,238) ;}"
+        "QWidget#widget         { background-color: rgb(238,238,238); border-bottom: 1px solid rgb(204,204,204); }"
+        "QWidget#widget_2       { padding: 2px; margin: 3px; border-left: 1px solid rgb(204,204,204); }"
+
+        "QPushButton            { background: rgb(238,238,238); color: rgb(0,0,0); border: 2px solid rgb(204,204,204); padding: 3px;  margin: 6px; margin-left: 12px; margin-right: 12px ;}"
+        "QPushButton:hover      { background: rgb(238,238,238); color: rgb(0,0,0); border: 2px solid rgb(204,204,204); padding: 3px;  margin: 6px; margin-left: 12px; margin-right: 12px ;}"
+        "QPushButton:disabled   { color: rgb(150,150,150) ;}"
+
+        "QToolBar               { background-color: rgb(238,238,238) ;}"
+
+        "QTabBar::tab           { color: rgb(0,0,0); border: 1px solid rgb(204,204,204); border-bottom: none; padding: 5px ;}"
+        "QTabBar::tab:selected  { background: rgb(153,204,153);}"
+        "QTabBar::tab:!selected { background: rgb(238,238,238); margin-top: 2px;}"
+
+        "QToolButton            { font-size: 14px; background: rgb(238,238,238); color: rgb(0,0,0); border: 1px solid rgb(238,238,238); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:hover      { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(153,204,153); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:pressed    { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(0,0,0); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:checked    { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(153,204,153); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:disabled   { color: rgb(150,150,150) ;}"
+        "QToolButton#addressBookButton, QToolButton#deleteButton, QToolButton#pasteButton { font-size: 8px; background: rgb(238,238,238); color: rgb(0,0,0); padding: 2px;  margin: 3px; margin-left: 2px; margin-right: 2px ;}"
+
+        "QDoubleSpinBox         { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QLineEdit              { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0); }"
+        "QLineEdit#lineEdit     { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QValidatedLineEdit     { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+
+        "QTextEdit              { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+        "QTextEdit#messagesWidget      { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QPlainTextEdit         { padding: 2px; border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QMenu                  { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenu::item:selected   { background: rgb(153,204,153); color: rgb(0,0,0) ;}"
+
+        "QMenuBar               { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenuBar::item         { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenuBar::item:selected { background: rgb(153,204,153) ;}"
+
+        "QScrollBar             { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QCheckBox              { padding: 2px; color: rgb(0,0,0); background: rgb(238,238,238) ;}"
+
+        "QRadioButton           { padding: 2px; color: rgb(0,0,0); background: rgb(238,238,238) ;}"
+
+        "QTabWidget::tab-bar    { border-radius: 2px ;}"
+        "QTabWidget::pane       { border: 2px solid rgb(204,204,204); border-radius: 4px ;}"
+
+        "QProgressBar           { color: rgb(0,0,0); border: 2px solid rgb(204,204,204); border-radius: 4px ;}"
+        "QProgressBar::chunk    { background: rgb(153,204,153) ;}"
+        "QProgressBar::QLabel   { color: rgb(0,0,0) ;}"
+
+        "QTreeView              { background-color: rgba(0,0,0,0) ;}"
+        "QTreeView::item        { background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QTreeView::item:selected { background-color: rgba(153,204,153) ;}"
+
+        "QTableView             { alternate-background-color: rgb(255,255,255) ; color: rgb(0,0,0); selection-color: rgb(0,0,0); selection-background-color: rgb(153,204,153);}"
+
+        "QScrollArea#scrollArea { background-color: rgba(255,255,255) ;}"
+
+        "QHeaderView::section   {  padding: 1px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QHeaderView            {  padding: 1px; background: rgb(255,255,255) ;}"
+
+        "QWidget#transactionsPage { background-color: rgba(255,255,255);}"
+
+        "QWidget#scrollAreaWidgetContents { background-color: rgba(238,238,238);}"
+
+        "QDialog#EditAddressDialog, QDialog#SignVerifyMessageDialog, QDialog#AskPassphraseDialog, QDialog#CoinControlDialog, QDialog#TransactionDescDialog, QDialog#AboutDialog, QDialog#OptionsDialog, QDialog#QRCodeDialog, QDialog#RPCConsole, QMessageBox  {color: rgb(0,0,0) ;}"
+
+        "QSpinBox               {  padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0);}"
+        "QComboBox              {  padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0);}"
+        "QAbstractSpinBox       {padding: 2px; border: 1px solid rgb(204,204,204); border-radius: 3px;  color: rgb(0,0,0); background: rgb(255,255,255) ;}"
+        "QAbstractItemView      {padding: 2px; border: 1px solid rgb(238,238,238); border-radius: 3px;  color: rgb(0,0,0); background: rgb(255,255,255) ;}"
+
+        "QVBoxLayout            { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QVBoxLayout::QLabel    { color: rgb(0,0,0);}"
+
+        "QLabel                 { color: rgb(0,0,0) ;}"
+        "QLabel::header         { border-color: rgb(204,204,204) ;}"
+        "QLabel::progressBarLabel { color: rgb(238,238,238) ;}"
+        "QLabel#lbl_Available_text, QLabel#lbl_Pending_Text, QLabel#labelStakingText, QLabel#labelImmatureText, QLabel#lbl_Total_Text, QLabel#lbl_24H_Text, QLabel#lbl_7D_Text, QLabel#lbl_30D_Text {font-size: 14px; color: rgb(0,0,0);}"
+        "QLabel#labelStaking, QLabel#labelBalance, QLabel#labelStake, QLabel#labelUnconfirmed, QLabel#labelImmature, QLabel#label24hStakingStats, QLabel#label7dStakingStats, QLabel#label30dStakingStats  {font-size: 14px; color: rgb(0,0,0);}"
+        "QLabel#label_MyWallet, QLabel#StakingStatus_Heading {color: rgb(0,0,0) ;}"
+        "QLabel#overviewpage_total_label, QLabel#labelTotal {font-size: 14px; font-weight: bold; color: rgb(0,0,0) ;}"
+        "QLabel#lblAmount, QLabel#lblLabel, QLabel#lblMessage {color: rgb(0,0,0) ;}"
+        "QLabel#lbl_last_action {font-size: 14px; color: rgb(0,0,0);}"
+
+        "QListView#listTransactions              { background-color: transparent; font-size: 14px; color: rgb(0,0,0) ;}"
+
+    );
+}
+
+#else
+// Linux styles here
+    app.setStyleSheet(
+        "QMainWindow            { background-color: rgb(238,238,238) ;}"
+        "QDialog                { background-color: rgb(238,238,238) ;}"
+        "QFrame                 { border: 5px ;}"
+        "QFrame#SendCoinsEntry  { background-color: rgba(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenu                  { }"
+
+        "QWidget#RPCConsole     { background-color: rgb(238,238,238) ;}"
+        "QWidget#widget         { background-color: rgb(238,238,238); border-bottom: 1px solid rgb(204,204,204); }"
+        "QWidget#widget_2       { padding: 2px; margin: 3px; border-left: 1px solid rgb(204,204,204); }"
+
+        "QPushButton            { background: rgb(238,238,238); color: rgb(0,0,0); border: 2px solid rgb(204,204,204); padding: 3px;  margin: 6px; margin-left: 12px; margin-right: 12px ;}"
+        "QPushButton:hover      { background: rgb(238,238,238); color: rgb(0,0,0); border: 2px solid rgb(204,204,204); padding: 3px;  margin: 6px; margin-left: 12px; margin-right: 12px ;}"
+        "QPushButton:disabled   { color: rgb(150,150,150) ;}"
+
+        "QToolBar               { background-color: rgb(238,238,238) ;}"
+
+        "QTabBar::tab           { color: rgb(0,0,0); border: 1px solid rgb(204,204,204); border-bottom: none; padding: 5px ;}"
+        "QTabBar::tab:selected  { background: rgb(153,204,153);}"
+        "QTabBar::tab:!selected { background: rgb(238,238,238); margin-top: 2px;}"
+
+        "QToolButton            { font-size: 14px; background: rgb(238,238,238); color: rgb(0,0,0); border: 1px solid rgb(238,238,238); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:hover      { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(153,204,153); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:pressed    { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(0,0,0); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:checked    { background: rgb(153,204,153); color: rgb(0,0,0); border: 1px solid rgb(153,204,153); border-radius: 2px; padding: 8px;  margin: 8px; margin-left: 12px; margin-right: 12px ;}"
+        "QToolButton:disabled   { color: rgb(150,150,150) ;}"
+        "QToolButton#addressBookButton, QToolButton#deleteButton, QToolButton#pasteButton { font-size: 8px; background: rgb(238,238,238); color: rgb(0,0,0); padding: 2px;  margin: 3px; margin-left: 2px; margin-right: 2px ;}"
+
+        "QDoubleSpinBox         { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QLineEdit              { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0); }"
+        "QLineEdit#lineEdit     { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QValidatedLineEdit     { padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+
+        "QTextEdit              { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+        "QTextEdit#messagesWidget      { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QPlainTextEdit         { padding: 2px; border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QMenu                  { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenu::item:selected   { background: rgb(153,204,153); color: rgb(0,0,0) ;}"
+
+        "QMenuBar               { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenuBar::item         { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QMenuBar::item:selected { background: rgb(153,204,153) ;}"
+
+        "QScrollBar             { padding: 2px; border-radius: 3px; background: rgb(238,238,238); color: rgb(0,0,0); border-color: rgb(204,204,204) ;}"
+
+        "QCheckBox              { padding: 2px; color: rgb(0,0,0); background: rgb(238,238,238) ;}"
+
+        "QRadioButton           { padding: 2px; color: rgb(0,0,0); background: rgb(238,238,238) ;}"
+
+        "QTabWidget::tab-bar    { border-radius: 2px ;}"
+        "QTabWidget::pane       { border: 2px solid rgb(204,204,204); border-radius: 4px ;}"
+
+        "QProgressBar           { color: rgb(0,0,0); border: 2px solid rgb(204,204,204); border-radius: 4px ;}"
+        "QProgressBar::chunk    { background: rgb(153,204,153) ;}"
+        "QProgressBar::QLabel   { color: rgb(0,0,0) ;}"
+
+        "QTreeView              { background-color: rgba(0,0,0,0) ;}"
+        "QTreeView::item        { background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QTreeView::item:selected { background-color: rgba(153,204,153) ;}"
+
+        "QTableView             { alternate-background-color: rgb(255,255,255) ; color: rgb(0,0,0); selection-color: rgb(0,0,0); selection-background-color: rgb(153,204,153);}"
+
+        "QScrollArea#scrollArea { background-color: rgba(255,255,255) ;}"
+
+        "QHeaderView::section   {  padding: 1px; background: rgb(255,255,255); color: rgb(0,0,0) ;}"
+        "QHeaderView            {  padding: 1px; background: rgb(255,255,255) ;}"
+
+        "QWidget#transactionsPage { background-color: rgba(255,255,255);}"
+
+        "QWidget#scrollAreaWidgetContents { background-color: rgba(238,238,238);}"
+
+        "QDialog#EditAddressDialog, QDialog#SignVerifyMessageDialog, QDialog#AskPassphraseDialog, QDialog#CoinControlDialog, QDialog#TransactionDescDialog, QDialog#AboutDialog, QDialog#OptionsDialog, QDialog#QRCodeDialog, QDialog#RPCConsole, QMessageBox  {color: rgb(0,0,0) ;}"
+
+        "QSpinBox               {  padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0);}"
+        "QComboBox              {  padding: 3px; border: 1px solid rgb(204,204,204); border-radius: 3px; background: rgb(255,255,255); color: rgb(0,0,0);}"
+        "QAbstractSpinBox       {padding: 2px; border: 1px solid rgb(204,204,204); border-radius: 3px;  color: rgb(0,0,0); background: rgb(255,255,255) ;}"
+        "QAbstractItemView      {padding: 2px; border: 1px solid rgb(238,238,238); border-radius: 3px;  color: rgb(0,0,0); background: rgb(255,255,255) ;}"
+
+        "QVBoxLayout            { background: rgb(238,238,238); color: rgb(0,0,0) ;}"
+        "QVBoxLayout::QLabel    { color: rgb(0,0,0);}"
+
+        "QLabel                 { color: rgb(0,0,0) ;}"
+        "QLabel::header         { border-color: rgb(204,204,204) ;}"
+        "QLabel::progressBarLabel { color: rgb(238,238,238) ;}"
+        "QLabel#lbl_Available_text, QLabel#lbl_Pending_Text, QLabel#labelStakingText, QLabel#labelImmatureText, QLabel#lbl_Total_Text, QLabel#lbl_24H_Text, QLabel#lbl_7D_Text, QLabel#lbl_30D_Text {font-size: 14px; color: rgb(0,0,0);}"
+        "QLabel#labelStaking, QLabel#labelBalance, QLabel#labelStake, QLabel#labelUnconfirmed, QLabel#labelImmature, QLabel#label24hStakingStats, QLabel#label7dStakingStats, QLabel#label30dStakingStats  {font-size: 14px; color: rgb(0,0,0);}"
+        "QLabel#label_MyWallet, QLabel#StakingStatus_Heading {color: rgb(0,0,0) ;}"
+        "QLabel#overviewpage_total_label, QLabel#labelTotal {font-size: 14px; font-weight: bold; color: rgb(0,0,0) ;}"
+        "QLabel#lblAmount, QLabel#lblLabel, QLabel#lblMessage {color: rgb(0,0,0) ;}"
+        "QLabel#lbl_last_action {font-size: 14px; color: rgb(0,0,0);}"
+
+        "QListView#listTransactions              { background-color: transparent; font-size: 14px; color: rgb(0,0,0) ;}"
+
+        "QGroupBox      { color: rgb(238,238,238) ;}"
+
+    );
+}
+#endif
+
+
 } // namespace GUIUtil
